@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <h2 class="text-center" style="margin-top: 15vh;">Employee List</h2>
+    <table class="table table-hover table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Use *ngIf to conditionally render rows -->
+        <ng-container *ngIf="employee && employee.length > 0">
+          <tr *ngFor="let user of employee">
+            <td>{{ user.employee_name }}</td>
+            <td>
+              <button class="btn btn-primary" (click)="viewEmpDetails(user.id)">View Details</button>
+              <button class="btn btn-warning" (click)="editEmployee(user.id)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteEmployee(user.id)">Delete</button>
+            </td>
+          </tr>
+        </ng-container>
+        <!-- Handle case when employee is empty -->
+        <ng-container *ngIf="!employee || employee.length === 0">
+          <tr>
+            <td colspan="2" class="text-center">No records found</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    
+    <button class="btn btn-success" (click)="showAddEmployeeForm()">Add Employee</button>
+
+    
+</div>

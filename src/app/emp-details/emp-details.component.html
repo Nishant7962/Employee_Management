@@ -1,0 +1,32 @@
+<div class="container mt-6" style="margin-top: 18vh;">
+    <h3 class="text-center my-5">{{ emp?.employee_name }}'s Details</h3>
+    <div class="row" *ngIf="emp; else noData">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text" style="color: rgb(44, 157, 223);"><strong>Name:</strong> {{ emp.employee_name }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>Salary:</strong> {{ emp.employee_salary }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><strong>Age:</strong> {{ emp.employee_age }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p class="text-center">No employee details found</p>
+    </ng-template>
+    <div class="text-center mt-4" style="margin-bottom: 15vh;">
+    </div>
+  </div>
+  
